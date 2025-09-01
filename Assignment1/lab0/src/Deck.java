@@ -6,8 +6,8 @@ import java.util.List;
  * @author Ramiyan Gangatharan
  * @since 2025-08-31
  * Represents a standard deck of 52 playing cards.
- * This class allows creating a full deck of cards, shuffling the deck, and drawing cards one at a time. 
-*/
+ * This class allows creating a full deck of cards, shuffling the deck, and drawing cards one at a time.
+ */
 public class Deck {
     private final List<Card> cards;
 
