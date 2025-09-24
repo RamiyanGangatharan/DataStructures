@@ -6,7 +6,7 @@ public class ArrayTest {
     public static void main(String[] args)
     {
         ComplexityLab lab = new ComplexityLab();
-        int numOfElements = 30000;
+        int numOfElements = 5000;
         long o = 0;
 
         int[] array1 = new int[numOfElements];
