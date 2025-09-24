@@ -17,5 +17,25 @@ public class Main {
         strStack.push("had");
         strStack.push("Mary");
 
+        for (int i = 0; i < strStack.capacity(); i++)
+        {
+            if (!strStack.isEmpty())
+            {
+                System.out.print(strStack.peek() + " ");
+                strStack.pop();
+            }
+        }
+
+        System.out.println();
+        System.out.print("Years in my stack: ");
+        for (int j = 0; j < intStack.capacity(); j++)
+        {
+            if (!intStack.isEmpty()) {
+                System.out.print(intStack.peek() + " ");
+                intStack.pop();
+                if (intStack.size() < 1) { System.out.print("[END OF STACK]: ");}
+                if (intStack.isEmpty()) {System.out.println("Stack is now Empty...");}
+            }
+        }
     }
 }
