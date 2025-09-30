@@ -30,5 +30,25 @@ public class Main {
          *      1. using a java LinkedList, write an algo to count how many times a given element appears in the list.
          *      2. using the java stack class, write an algo to retrieve the bottom element of the stack
          */
+
+        Queue<String> strQueue = new Queue<>();
+
+        System.out.println(strQueue.size());
+        System.out.println(strQueue.isEmpty());
+        System.out.println(strQueue.peek());
+
+        strQueue.enqueue("my");
+        strQueue.enqueue("name");
+        strQueue.enqueue("is");
+        strQueue.enqueue("not");
+        strQueue.enqueue("Bobby");
+
+        System.out.println(strQueue.size());
+
+        while (!strQueue.isEmpty())
+        {
+            System.out.print(strQueue.peek() + " ");
+            strQueue.dequeue();
+        }
     }
 }

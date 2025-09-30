@@ -5,25 +5,15 @@ public class Queue<E> {
         private E value;
         private Node<E> next;
 
-        private E getValue() {
-            return value;
-        }
+        private E getValue() { return value; }
+        private void setValue(E value) { this.value = value; }
 
-        private void setValue(E value) {
+        private Node<E> getNext() { return next; }
+
+        private void setNext(Node<E> next) { this.next = next; }
+
+        private Node(E value){
             this.value = value;
-        }
-
-        private Node<E> getNext() {
-            return next;
-        }
-
-        private void setNext(Node<E> next) {
-            this.next = next;
-        }
-
-        private Node(E value, Node<E> next){
-            this.value = value;
-            this.next = next;
         }
     }
 
@@ -43,5 +33,28 @@ public class Queue<E> {
     public E peek(){
         if (this.size == 0) { return null; }
         else { return this.front.value; }
+    }
+
+    // TODO: enqueue(), dequeue()
+
+    public E enqueue(E value) {
+        Node node = new Node(value);
+
+        if (this.size == 0) { this.front = node; }
+        else { this.back.next = node; }
+        this.back = node;
+        size++;
+        return value;
+    }
+
+    public E dequeue() {
+        if (this.size == 0) { return null; }
+        else {
+            E value = this.front.value;
+            this.front = this.front.next;
+            this.size--;
+            if (this.size == 0) { this.back = null; }
+            return value;
+        }
     }
 }
