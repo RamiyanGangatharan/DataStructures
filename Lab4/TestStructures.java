@@ -1,5 +1,6 @@
 public class TestStructures {
     public static void main(String[] args) {
+        // using custom data structs
         Stack stack = new Stack();
         Queue queue = new Queue();
 
@@ -41,6 +42,5 @@ public class TestStructures {
 
         System.out.println("\nWhat happens when you pop an empty stack: " + stack.pop());
         System.out.println("What happens when you dequeue an empty queue: " + queue.dequeue());
-
     }
 }
