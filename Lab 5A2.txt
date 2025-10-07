@@ -1,0 +1,6 @@
+Lab 5A2: 
+
+Triangle: 
+	- public int triangle(int rows) { return (rows == 0) ? rows : rows + triangle(rows - 1); }
+
+NOTE: I have a calculus test and do not have time for the completion.
