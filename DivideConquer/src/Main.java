@@ -14,19 +14,19 @@ public class Main {
      * the smaller of the two. This process continues up the recursive call stack
      * until the overall minimum value is determined.
      *
-     * @param nums the input array of integers
+     * @param array the input array of integers
      * @param low the starting index of the current sub-array
      * @param high the ending index of the current sub-array
      * @return the minimum value found in the array between indices low and high
      */
-    public static int divideConquer(int[] nums, int low, int high)
+    public static int divideConquer(int[] array, int low, int high)
     {
-        if (low == high) { return nums[low]; }
+        if (low == high) { return array[low]; }
         else {
             int midpoint = (low + high) / 2;
             return Math.min(
-                divideConquer(nums, low, midpoint),
-                divideConquer(nums, midpoint + 1, high)
+                divideConquer(array, low, midpoint),
+                divideConquer(array, midpoint + 1, high)
             );
         }
     }
