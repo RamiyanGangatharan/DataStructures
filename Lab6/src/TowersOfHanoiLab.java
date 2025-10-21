@@ -29,7 +29,7 @@ public class TowersOfHanoiLab {
         System.out.println("DEFAULT CONFIG:");
         printTowers();
 
-        moveTopDisc(source, destination);
+        System.out.println("Solving the Hanoi Problem non-recursively: ");
         moveTopDisc(source, destination);
         moveTopDisc(source,auxiliary);
         moveTopDisc(destination, auxiliary);
@@ -37,6 +37,10 @@ public class TowersOfHanoiLab {
         moveTopDisc(auxiliary, source);
         moveTopDisc(auxiliary, destination);
         moveTopDisc(source, destination);
+
+        System.out.println("Sample Error: ");
+        moveTopDisc(destination, auxiliary);
+        moveTopDisc(destination, auxiliary);
     }
 
     /**
