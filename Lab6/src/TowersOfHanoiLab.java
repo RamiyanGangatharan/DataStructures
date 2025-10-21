@@ -16,7 +16,27 @@ public class TowersOfHanoiLab {
      * @param args command line arguments (not used)
      */
     public static void main(String[] args) {
-        // TODO: Implement this method
+        // TODO: Implement this method;
+
+        Disc disc1 = new Disc(2);
+        Disc disc2 = new Disc(4);
+        Disc disc3 = new Disc(6);
+
+        source.push(disc3);
+        source.push(disc2);
+        source.push(disc1);
+
+        System.out.println("DEFAULT CONFIG:");
+        printTowers();
+
+        moveTopDisc(source, destination);
+        moveTopDisc(source, destination);
+        moveTopDisc(source,auxiliary);
+        moveTopDisc(destination, auxiliary);
+        moveTopDisc(source, destination);
+        moveTopDisc(auxiliary, source);
+        moveTopDisc(auxiliary, destination);
+        moveTopDisc(source, destination);
     }
 
     /**
@@ -39,8 +59,23 @@ public class TowersOfHanoiLab {
      * @throws IllegalArgumentException if the source or destination towers are null
      */
     public static void moveTopDisc(Tower s, Tower d) {
-        // TODO: Implement this method
+        if (s == null || d == null) { throw new IllegalArgumentException("Source or destination tower cannot be null."); }
+        if (s.getSize() == 0) { System.out.println("ERROR: Source tower is empty!"); return; }
+
+        Disc topSource = s.getTop();
+        Disc topDestination = d.getTop();
+
+        // Check if move is valid BEFORE moving
+        if (topDestination == null || topSource.getWidth() < topDestination.getWidth()) {
+            Disc moved = s.pop();
+            d.push(moved);
+            System.out.println("Moved disc " + moved.getWidth() + " from" + s.getName() + "to" + d.getName());
+            printTowers();
+        } else {
+            System.out.println("ERROR: Cannot move disc " + topSource.getWidth() + " onto smaller disc " + topDestination.getWidth() + " in" + d.getName());
+        }
     }
+
 
     /**
      * Centers a string within a given length, padding with spaces as necessary.
