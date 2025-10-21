@@ -3,7 +3,7 @@
  * This class provides the helper methods, however students must implement the actual problem
  * solution by finishing the provided stub methods.
  */
-public class TowersOfHanoiLab {
+public class TowersOfHanoiLabRecursive {
     static int numberofDiscs = 3; // Default number of discs for testing
     static int towerWidth = Math.max(numberofDiscs, 11);
     static Tower source = new Tower(centerPad("Tower A", towerWidth));
@@ -23,7 +23,11 @@ public class TowersOfHanoiLab {
         Disc disc1 = new Disc(2);
         Disc disc2 = new Disc(4);
         Disc disc3 = new Disc(6);
+        Disc disc4 = new Disc(8);
+        Disc disc5 = new Disc(10);
 
+        source.push(disc5);
+        source.push(disc4);
         source.push(disc3);
         source.push(disc2);
         source.push(disc1);
@@ -31,18 +35,8 @@ public class TowersOfHanoiLab {
         System.out.println("DEFAULT CONFIG:");
         printTowers();
 
-        System.out.println("Solving the Hanoi Problem non-recursively: ");
-        moveTopDisc(source, destination);
-        moveTopDisc(source,auxiliary);
-        moveTopDisc(destination, auxiliary);
-        moveTopDisc(source, destination);
-        moveTopDisc(auxiliary, source);
-        moveTopDisc(auxiliary, destination);
-        moveTopDisc(source, destination);
-
-        System.out.println("Sample Error: ");
-        moveTopDisc(destination, auxiliary);
-        moveTopDisc(destination, auxiliary);
+        System.out.println("Solving the Hanoi Problem recursively");
+        moveDiscs(5, source, destination, auxiliary);
     }
 
     /**
@@ -58,7 +52,6 @@ public class TowersOfHanoiLab {
         if (numberofDiscs == 1) { moveTopDisc(source, destination); }
         else {
             // NOTE: numberofDiscs - 1 means the next largest disk
-
             // Move top numberofDiscs - 1 discs from source to auxiliary
             moveDiscs(numberofDiscs - 1, source, auxiliary, destination);
             // Move the largest disc to destination
