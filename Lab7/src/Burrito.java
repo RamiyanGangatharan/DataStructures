@@ -194,8 +194,10 @@ public class Burrito {
      */
     @Override
     public String toString() {
-        String guacString = guac ? "and guacamole" : "and no guacamole";
-        return String.format("\n [ %s %s Burrito with %s rice, %s beans, %s %s. Cost: $%.2f ]",
-                size, protein, rice, beans, toppings, guacString, getCost());
+        String guacString = guac ? "with guac" : "no guac";
+        return String.format(
+                "\n  [ %s %s burrito, %s rice, %s beans, %s, %s, $%.2f ]",
+                size, protein, rice, beans, toppings, guacString, getCost()
+        );
     }
 }

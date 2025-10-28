@@ -4,22 +4,36 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        Burrito burrito1 = new Burrito("small", "steak", "brown", "black", "tomatoes", false);
-        Burrito burrito2 = new Burrito("large", "chicken", "white", "pinto", "cheese", true);
 
+        Burrito burrito1 = new Burrito("small", "chicken", "white", "black", "cheese", false);
+        Burrito burrito2 = new Burrito("large", "steak", "brown", "pinto", "tomatoes", true);
+        Burrito burrito3 = new Burrito("medium", "carnitas", "white", "black", "lettuce", false);
+        Burrito burrito4 = new Burrito("large", "sofritas", "brown", "none", "corn salsa", true);
+        Burrito burrito5 = new Burrito("small", "none", "none", "none", "plain", false);
+        Burrito burrito6 = new Burrito("medium", "chicken", "brown", "pinto", "cheese + sour cream", true);
+        Burrito burrito7 = new Burrito("large", "steak", "white", "black", "pico de gallo", true);
+
+
+        System.out.println("----------------------------------------");
         System.out.println("PRINT ARRAY");
-        Burrito[] burrito = {burrito1, burrito2};
-        printArray(burrito);
+        Burrito[] burritos = { burrito1, burrito2, burrito3, burrito4, burrito5, burrito6, burrito7 };
+        printArray(burritos);
 
-        LinkedList<Burrito> BL = new LinkedList<>();
-        BL.add(burrito1);
-        BL.add(burrito2);
+        LinkedList<Burrito> burritoList = new LinkedList<>();
+        burritoList.add(burrito1);
+        burritoList.add(burrito2);
+        burritoList.add(burrito3);
+        burritoList.add(burrito4);
+        burritoList.add(burrito5);
+        burritoList.add(burrito6);
+        burritoList.add(burrito7);
 
         System.out.println("----------------------------------------");
         System.out.println("PRINT LINKEDLIST");
-
-        printList(BL);
+        printList(burritoList);
+        System.out.println("----------------------------------------");
     }
+
 
     /**
      * This method prints the array that is given to it.
