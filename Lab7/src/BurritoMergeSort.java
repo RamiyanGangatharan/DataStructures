@@ -1,6 +1,7 @@
 public class BurritoMergeSort {
     // CODE TAKEN FROM ACTIVITY 7B2
 
+    // TODO: convert to use the burrito object
     public static int[] sort(int[] array, int left, int right) {
         //if the array can be divided, divide, conquer, combine
         if (left < right) {

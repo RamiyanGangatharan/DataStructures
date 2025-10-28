@@ -1,13 +1,15 @@
 public class BurritoQuickSort {
     // CODE TAKEN FROM ACTIVITY 7B2
-    public static void quickSort(int[] arr, int left, int right) {
+
+    // TODO: convert to use the burrito object
+    public static void sort(int[] arr, int left, int right) {
         // make sure there is something still to sort (not a single element)
         if (left < right) {
             // partitionInverse the array
             int pivot = partition(arr, left, right);
             //recursively sort two partitions
-            quickSort(arr, left, pivot - 1);
-            quickSort(arr, pivot + 1, right);
+            sort(arr, left, pivot - 1);
+            sort(arr, pivot + 1, right);
         }
     }
 
