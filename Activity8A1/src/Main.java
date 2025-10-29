@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {4, 2, 3, 6, 5, 2, 4, 1, 3, 3, 3, 3, 3};
+        int[] arr = {4, 2, -3, -6, 5, 2, -4, 1, 3, 3, -3, 3, 3};
         int maxValue = 6;
 
         System.out.println("Original array:");
@@ -20,9 +20,26 @@ public class Main {
         System.out.println();
     }
 
+    public static int FindMin(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        for (int i : arr) { min = Math.min(min, i); }
+        return min;
+    }
+
+    public static void shift(int[] arr, int minValue) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] += -minValue; // shifting up when minValue is negative
+        }
+    }
+
     // Stable Counting Sort with max value as parameter
     public static void countingSort(int[] arr, int maxValue) {
         // TODO: modify this to handle negative numbers
+
+        int minValue = FindMin(arr);
+        shift(arr, minValue);
+
+        maxValue += -minValue;
 
         // create a count array and sorted array
         int[] countArray = new int[maxValue + 1];
@@ -45,6 +62,8 @@ public class Main {
             //3d: insert value at sorted index
             sortedArray[index] = value;
         }
+
+        shift(sortedArray, -minValue);
 
         // Step 4: Copy sorted array back to original array (hint: System.arraycopy(src, ind, targ, ind, len)
         System.arraycopy(sortedArray, 0, arr, 0, arr.length);
