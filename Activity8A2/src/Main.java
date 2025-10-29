@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-
+        // WARNING HIGH MEMORY USAGE WITH COPY ARRAYS IN COUNTING SORT
         int[] quick = new int[] {0, Integer.MAX_VALUE / (5 / 2)};
         int[] merge = new int[] {0, Integer.MAX_VALUE / (5 / 2)};
         int[] count = new int[] {0, Integer.MAX_VALUE / (5 / 2)};
