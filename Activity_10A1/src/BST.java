@@ -123,7 +123,7 @@ public class BST {
     // Step 1: Store the elements of the BST in a sorted list
     List<Integer> sortedList = new ArrayList<>();
     //helper method call
-
+    storeInOrder(this.root, sortedList);
 
     // Step 2: Rebuild the tree by recursively inserting the middle element - helper method
 
@@ -132,7 +132,11 @@ public class BST {
   // Helper method to perform an in-order traversal and store elements in a sorted list
   private void storeInOrder(Node node, List<Integer> list) {
     //using in-order traversal, but rather than print, add to list
-
+    if (node != null) {
+      storeInOrder(node.left, list);
+      list.add(node.data);
+      storeInOrder(node.right, list);
+    }
   }
 
   // Helper method to rebuild the tree from the sorted list
